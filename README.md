@@ -16,6 +16,47 @@ import fsds_100719 as fs
 from fsds_100719.imports import *
 ```
 
+
+<style  type="text/css" >
+</style><table id="T_80186d8c_0226_11ea_ab78_08606e0d6568" ><caption>Loaded Packages and Handles</caption><thead>    <tr>        <th class="col_heading level0 col0" >Handle</th>        <th class="col_heading level0 col1" >Package</th>        <th class="col_heading level0 col2" >Description</th>    </tr></thead><tbody>
+                <tr>
+                                <td id="T_80186d8c_0226_11ea_ab78_08606e0d6568row0_col0" class="data row0 col0" >dp</td>
+                        <td id="T_80186d8c_0226_11ea_ab78_08606e0d6568row0_col1" class="data row0 col1" >IPython.display</td>
+                        <td id="T_80186d8c_0226_11ea_ab78_08606e0d6568row0_col2" class="data row0 col2" >Display modules with helpful display and clearing commands.</td>
+            </tr>
+            <tr>
+                                <td id="T_80186d8c_0226_11ea_ab78_08606e0d6568row1_col0" class="data row1 col0" >fs</td>
+                        <td id="T_80186d8c_0226_11ea_ab78_08606e0d6568row1_col1" class="data row1 col1" >fsds_100719</td>
+                        <td id="T_80186d8c_0226_11ea_ab78_08606e0d6568row1_col2" class="data row1 col2" >Custom data science bootcamp student package</td>
+            </tr>
+            <tr>
+                                <td id="T_80186d8c_0226_11ea_ab78_08606e0d6568row2_col0" class="data row2 col0" >mpl</td>
+                        <td id="T_80186d8c_0226_11ea_ab78_08606e0d6568row2_col1" class="data row2 col1" >matplotlib</td>
+                        <td id="T_80186d8c_0226_11ea_ab78_08606e0d6568row2_col2" class="data row2 col2" >Matplotlib's base OOP module with formatting artists</td>
+            </tr>
+            <tr>
+                                <td id="T_80186d8c_0226_11ea_ab78_08606e0d6568row3_col0" class="data row3 col0" >plt</td>
+                        <td id="T_80186d8c_0226_11ea_ab78_08606e0d6568row3_col1" class="data row3 col1" >matplotlib.pyplot</td>
+                        <td id="T_80186d8c_0226_11ea_ab78_08606e0d6568row3_col2" class="data row3 col2" >Matplotlib's matlab-like plotting module</td>
+            </tr>
+            <tr>
+                                <td id="T_80186d8c_0226_11ea_ab78_08606e0d6568row4_col0" class="data row4 col0" >np</td>
+                        <td id="T_80186d8c_0226_11ea_ab78_08606e0d6568row4_col1" class="data row4 col1" >numpy</td>
+                        <td id="T_80186d8c_0226_11ea_ab78_08606e0d6568row4_col2" class="data row4 col2" >scientific computing with Python</td>
+            </tr>
+            <tr>
+                                <td id="T_80186d8c_0226_11ea_ab78_08606e0d6568row5_col0" class="data row5 col0" >pd</td>
+                        <td id="T_80186d8c_0226_11ea_ab78_08606e0d6568row5_col1" class="data row5 col1" >pandas</td>
+                        <td id="T_80186d8c_0226_11ea_ab78_08606e0d6568row5_col2" class="data row5 col2" >High performance data structures and tools</td>
+            </tr>
+            <tr>
+                                <td id="T_80186d8c_0226_11ea_ab78_08606e0d6568row6_col0" class="data row6 col0" >sns</td>
+                        <td id="T_80186d8c_0226_11ea_ab78_08606e0d6568row6_col1" class="data row6 col1" >seaborn</td>
+                        <td id="T_80186d8c_0226_11ea_ab78_08606e0d6568row6_col2" class="data row6 col2" >High-level data visualization library based on matplotlib</td>
+            </tr>
+    </tbody></table>
+
+
 **Taking a preview of the data**
 
 
@@ -202,6 +243,39 @@ df.head()
 </div>
 
 
+
+
+```python
+df.info()
+```
+
+    <class 'pandas.core.frame.DataFrame'>
+    RangeIndex: 21597 entries, 0 to 21596
+    Data columns (total 21 columns):
+    id               21597 non-null int64
+    date             21597 non-null object
+    price            21597 non-null float64
+    bedrooms         21597 non-null int64
+    bathrooms        21597 non-null float64
+    sqft_living      21597 non-null int64
+    sqft_lot         21597 non-null int64
+    floors           21597 non-null float64
+    waterfront       19221 non-null float64
+    view             21534 non-null float64
+    condition        21597 non-null int64
+    grade            21597 non-null int64
+    sqft_above       21597 non-null int64
+    sqft_basement    21597 non-null object
+    yr_built         21597 non-null int64
+    yr_renovated     17755 non-null float64
+    zipcode          21597 non-null int64
+    lat              21597 non-null float64
+    long             21597 non-null float64
+    sqft_living15    21597 non-null int64
+    sqft_lot15       21597 non-null int64
+    dtypes: float64(8), int64(11), object(2)
+    memory usage: 3.5+ MB
+    
 
 *Here, we see several variables, which upon initial inspection, I see as four main types:* 
 1. Items we can directly control via renovations or timing we put home on market:
@@ -1049,7 +1123,7 @@ df.hist(figsize=(20,20));
 ```
 
 
-![png](output_16_0.png)
+![png](output_17_0.png)
 
 
 *Due to the above scatterplots, can infer the following are categorical: 
@@ -1840,7 +1914,7 @@ df.hist(figsize=(20,20));
 ```
 
 
-![png](output_26_0.png)
+![png](output_27_0.png)
 
 
 
@@ -1895,7 +1969,7 @@ df.hist(figsize=(20,20));
 ```
 
 
-![png](output_32_0.png)
+![png](output_33_0.png)
 
 
 
@@ -1940,7 +2014,7 @@ sns.heatmap(data=corr[corr>.6], annot=True, cmap=sns.color_palette('Blues'));
 ```
 
 
-![png](output_35_0.png)
+![png](output_36_0.png)
 
 
 *sqft_living has most colinearity. But is also a top item correlated to price. To fix this, I will drop sqft_above, and sq_ft below. Total living space is more of a measure people pay attention to then splitting. Sqft_lot is strongly correlated to sqft_lot15, so I will drop sqft_lot15 since sqft_lot is something most people can easily understand. Plus with the high correlation, this means lot sizes are similar to those of their neighbors already. Also dropping last_constructed as it has strong correlation to yr_built*
@@ -1959,59 +2033,59 @@ for col in df.columns:
 ```
 
 
-![png](output_38_0.png)
+![png](output_39_0.png)
 
 
 
-![png](output_38_1.png)
+![png](output_39_1.png)
 
 
 
-![png](output_38_2.png)
+![png](output_39_2.png)
 
 
 
-![png](output_38_3.png)
+![png](output_39_3.png)
 
 
 
-![png](output_38_4.png)
+![png](output_39_4.png)
 
 
 
-![png](output_38_5.png)
+![png](output_39_5.png)
 
 
 
-![png](output_38_6.png)
+![png](output_39_6.png)
 
 
 
-![png](output_38_7.png)
+![png](output_39_7.png)
 
 
 
-![png](output_38_8.png)
+![png](output_39_8.png)
 
 
 
-![png](output_38_9.png)
+![png](output_39_9.png)
 
 
 
-![png](output_38_10.png)
+![png](output_39_10.png)
 
 
 
-![png](output_38_11.png)
+![png](output_39_11.png)
 
 
 
-![png](output_38_12.png)
+![png](output_39_12.png)
 
 
 
-![png](output_38_13.png)
+![png](output_39_13.png)
 
 
 *Due to the above scatterplots,and the definitions of the categories, I can deduce ['month_sold', 'condition', 'grade', and 'zipcode'] are all categorical
@@ -4430,10 +4504,15 @@ display(train_mse**.5, test_mse**.5)
 ## What's more important? Factors when considering where to buy your house or the renovations?
 Seems as if the factors when purchasing the house, appear to be most revelant to house prices. However, there is too much of a difference from those features and our actual price to account for all price changes.
 
-## What is the most revelant feature you can change? Most revelent one you can't change?
+## What is the most revelant feature you can change? Most relevant one you can't change?
 The sqft_living appears to have a strong affect on the price. The one I can't change but has a huge affect is zipcode.
 
-# Factors I can change by importance:
+## Recommendations to future flippers?
+- First narrow down search area to zipcodes/latitudes where prices tend to be higher.
+- Find homes which are cheaper than data analysis predicts them to be(more in equity to gain).
+- When using doing renovations, the best features to change are the total area of home and grade. So look into expanding home and bringing up quality of finishes.
+
+### Factors I can change by importance:
 - sqft_living
 - grade
 - condition
@@ -4443,7 +4522,7 @@ The sqft_living appears to have a strong affect on the price. The one I can't ch
 - month_sold
 
 
-# Factors I can't change by importance:
+### Factors I can't change by importance:
 - zipcode
 - lat
 - yr_built
@@ -4451,7 +4530,10 @@ The sqft_living appears to have a strong affect on the price. The one I can't ch
 - sqft_lot
 - long
 
-
+### Future Work
+- Explore how to find outliers and what features to play with to find homes that are cheaper than predicted
+- Zipcode/Latitude seem related to the distance of home to Seattle. Figure out how to calculate distance/travel time to Seattle
+- Figuring out my features for neighbors(don't wanna have a grade too high compared to neighbors, or a home much smaller)
 
 
 ```python
@@ -4470,7 +4552,7 @@ plt.show;
 ```
 
 
-![png](output_80_0.png)
+![png](output_81_0.png)
 
 
 
@@ -4488,7 +4570,7 @@ plt.show;
 ```
 
 
-![png](output_81_0.png)
+![png](output_82_0.png)
 
 
 
@@ -4504,7 +4586,7 @@ plt.show;
 ```
 
 
-![png](output_82_0.png)
+![png](output_83_0.png)
 
 
 
@@ -4520,7 +4602,7 @@ plt.show;
 ```
 
 
-![png](output_83_0.png)
+![png](output_84_0.png)
 
 
 ![image.png](attachment:image.png)
