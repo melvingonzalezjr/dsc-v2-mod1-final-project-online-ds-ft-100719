@@ -2583,6 +2583,8 @@ R_squareds
 *This says the improvement moves up quickest from 1 to 2 features. But my categoricals still should be hot-coded let's see what we can find.*
 
 
+**Model 1**
+
 
 ```python
 import statsmodels.formula.api as smf
@@ -2961,6 +2963,8 @@ df_cant_reno = df[['price', 'sqft_lot', 'yr_built', 'lat', 'long', 'sqft_living1
 
 *df_reno has items I can change/renovate plus price. df_cant_reno has the more permanent items I can't control for plus price*
 
+**Model 2 (Items I can renovate)**
+
 
 ```python
 #using categoricals plus 2 most important of the features I can influence
@@ -3103,6 +3107,8 @@ model_reno.summary()
 
 
 *R2 went down :( Next try the ones I don't have control over*
+
+**Model 3(features I can't renovate)**
 
 
 ```python
@@ -3400,6 +3406,8 @@ print(f'Model_cant_reno total High Pvalues: {sum(np.abs(model_cant.pvalues) > .0
 R2 decreased with items I have control over, but increased for what I don't control(still less than overall model.
 What I can't control also is tied with what I can control for the fewest high p-values.
 
+**Model 4(Initial model but just zipcode as my only Categorical since Model3 R2 > Model2 R2)**
+
 
 ```python
 f = 'price~zipcode+sqft_living+lat'
@@ -3683,7 +3691,9 @@ model.summary()
 
 
 
-*using just zipcodes in my original model(that was the only categorical value for my cant_reno model which had the fewest pvalues.....pvalues drop to 6, but my R2 dropped a little bit to .781
+*using just zipcodes in my original model(that was the only categorical value for my cant_reno model which had the fewest pvalues.....pvalues drop to 6, and my R2 dropped only a little bit to .781
+
+**Model 5(Using the renovate model(Model2) but with zipcode replacing all the categoricals)**
 
 
 ```python
@@ -3979,6 +3989,8 @@ model_reno.summary()
 
 *zipcode is valuable as it also dropped pvalues and brought R2 up for my can_reno model. While zipcode does have pvalues, it helps with R2 as shown with my original model below w/o zipcode*
 
+**Model 6(Experimenting how my initial Model works w/o Zipcode to see the effect of it on accuracy)**
+
 
 ```python
 f = 'price~month_sold+condition+grade+sqft_living+lat'
@@ -4145,6 +4157,8 @@ df.corrwith(df['price']).abs().sort_values(ascending=False)
     dtype: float64
 
 
+
+**Final Model! Using zipcode and grade(best permanent features) and sqft_living/lat(best features I can renovate)** 
 
 
 ```python
@@ -4552,7 +4566,7 @@ plt.show;
 ```
 
 
-![png](output_81_0.png)
+![png](output_88_0.png)
 
 
 
@@ -4570,7 +4584,7 @@ plt.show;
 ```
 
 
-![png](output_82_0.png)
+![png](output_89_0.png)
 
 
 
@@ -4586,7 +4600,7 @@ plt.show;
 ```
 
 
-![png](output_83_0.png)
+![png](output_90_0.png)
 
 
 
@@ -4602,7 +4616,7 @@ plt.show;
 ```
 
 
-![png](output_84_0.png)
+![png](output_91_0.png)
 
 
 ![image.png](attachment:image.png)
